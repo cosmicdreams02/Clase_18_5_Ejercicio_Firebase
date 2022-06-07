@@ -1,7 +1,10 @@
 
     // Import the functions you need from the SDKs you need
     import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js";
-    import { getFirestore, collection, getDocs, doc, setDoc, deleteDoc,updateTask,updateDoc  } from 'https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore.js';
+    import { getFirestore, collection, getDocs, doc, setDoc, deleteDoc,/* updateTask,updateDoc */  } from 'https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore.js';
+    
+    // En cuanto añado al import las funciones updatetask y updateDoc me desaparece el boton de actualizar y borrar.
+    
     // TODO: Add SDKs for Firebase products that you want to use
     // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -14,6 +17,7 @@
         messagingSenderId: "1054098357375",
         appId: "1:1054098357375:web:b9d485f628633e73c3534a"
       };
+      
 
     // Initialize Firebase
     export const app = initializeApp(firebaseConfig);
@@ -61,21 +65,20 @@
         document.body.appendChild(principalDiv);
         const br = document.createElement("br");
         document.body.appendChild(br);
+        
 
-
-        var inputUpload = document.createElement("input");
-        inputUpload.type = "button";
-        inputUpload.value = "Actualizar Tarea";
-        inputUpload.setAttribute = ("id",id)
+        var input = document.createElement("input");
+        input.type = "button";
+        input.value = "Actualizar Tarea";
         input.setAttribute("name", "upload");
+        input.setAttribute("id",id);
         bodyDiv.appendChild(input);
     
         principalDiv.appendChild(bodyDiv);
     
         document.body.appendChild(principalDiv);
         const br1 = document.createElement("br");
-        document.body.appendChild(br1);   
-        
+        document.body.appendChild(br1);
     }
 
     export function getTasks() {
@@ -103,9 +106,8 @@
         alert("Borrada la tarea: "+id);
     }
 
-    export async function updateTask(id,task) {
+/*     export async function updateTask(id,task) {
         await updateDoc(doc(db, "tasks", id, task));
-        alert(id);
-    } 
-
-
+        alert(id,task);
+    }  
+ */

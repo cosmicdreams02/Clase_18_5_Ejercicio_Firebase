@@ -2,12 +2,9 @@
 Cambia los datos de acceso usando los de tu aplicación
 Añade la actualización de datos a la aplicación y mejora en la medida de lo posible la UI. */
     
-    
-    
-    
-    
+
     //Me traigo mi db firestore
-    import { getTasks, insertTask, deleteTask, updateTask } from "./utils.js";
+    import { getTasks, insertTask, deleteTask } from "./utils.js";
     //console.log(db);
     //Extraigo todos los documentos de tasks y creo tarjetas con ellos
     getTasks();
@@ -25,6 +22,7 @@ Añade la actualización de datos a la aplicación y mejora en la medida de lo p
         insertTask(task);
     })
 
+
     const buttonsCardD = document.getElementsByName("delete");
     buttonsCardD.forEach(element => {
         element.addEventListener("click",  () => {
@@ -35,13 +33,9 @@ Añade la actualización de datos a la aplicación y mejora en la medida de lo p
         })
     });
 
-
-
-
-    const buttonsCardDUpdate = document.getElementsByName("upload");
+/*     const buttonsCardDUpdate = document.getElementsByName("upload");
     buttonsCardDUpdate.forEach(element => {
         element.addEventListener("click",  () => {
-            e.preventDefault();
             e.preventDefault();
             const task = {
                 title: form["task-title"].value,
@@ -50,11 +44,6 @@ Añade la actualización de datos a la aplicación y mejora en la medida de lo p
     
             updateTask(element.id);
         });
-    });
-
+    }); 
  
-
-
-    
-    
-
+ */
