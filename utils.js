@@ -1,10 +1,6 @@
-
     // Import the functions you need from the SDKs you need
     import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js";
-    import { getFirestore, collection, getDocs, doc, setDoc, deleteDoc,/* updateTask,updateDoc */  } from 'https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore.js';
-    
-    // En cuanto añado al import las funciones updatetask y updateDoc me desaparece el boton de actualizar y borrar.
-    
+    import { getFirestore, collection, getDocs, doc, setDoc, deleteDoc,updateDoc} from 'https://www.gstatic.com/firebasejs/9.6.1/firebase-firestore.js';
     // TODO: Add SDKs for Firebase products that you want to use
     // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -51,8 +47,16 @@
         pDesc.appendChild(pDescText);
         bodyDiv.appendChild(pDesc);
         bodyDiv.appendChild(hr);
-        
-        
+
+        var inputUpload = document.createElement("input");
+        inputUpload.type = "button";
+        inputUpload.value = "Actualizar Tarea";
+        inputUpload.setAttribute("name", "upload");
+        inputUpload.setAttribute("id",id);
+
+        bodyDiv.appendChild(inputUpload);
+    
+      
         var input = document.createElement("input");
         input.type = "button";
         input.value = "Borrar Tarea";
@@ -65,21 +69,9 @@
         document.body.appendChild(principalDiv);
         const br = document.createElement("br");
         document.body.appendChild(br);
-        
 
-        var input = document.createElement("input");
-        input.type = "button";
-        input.value = "Actualizar Tarea";
-        input.setAttribute("name", "upload");
-        input.setAttribute("id",id);
-        bodyDiv.appendChild(input);
-    
-        principalDiv.appendChild(bodyDiv);
-    
-        document.body.appendChild(principalDiv);
-        const br1 = document.createElement("br");
-        document.body.appendChild(br1);
     }
+
 
     export function getTasks() {
         querySnapshot.forEach((doc) => {
@@ -106,8 +98,11 @@
         alert("Borrada la tarea: "+id);
     }
 
-/*     export async function updateTask(id,task) {
-        await updateDoc(doc(db, "tasks", id, task));
-        alert(id,task);
-    }  
- */
+    export async function updateTask(id, task) {
+        await updateDoc(doc(db, "tasks", id),task);
+        alert(`Actualizada la tarea:  ${id} ${task.title} ${task.description}`)
+    }
+
+    export function exportID(id) {
+         doc(db, "tasks", id);
+    }

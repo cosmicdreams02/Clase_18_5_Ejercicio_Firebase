@@ -1,0 +1,37 @@
+html {
+    font-size: 100%;
+    box-sizing: border-box;
+  }
+  
+  *,
+  *:before,
+  *:after {
+    box-sizing: inherit;
+    font-family: 'Orbitron', sans-serif;
+  }
+  
+  body {
+    font-size: 16px;
+    background-color:aqua;
+    margin: 5%;
+  }
+  
+  .bg-info {
+    background-color: #2f00dcbf !important;
+}
+
+.card {
+  align-items: center;
+  border-radius: 5%;
+}
+
+.btn-secondary {
+  background-color: #482879;
+  color: white;
+  border-radius: 5%;
+}
+
+.btn-primary {
+  border-color: white;
+  border-radius: 5%;
+}

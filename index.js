@@ -4,7 +4,7 @@ Añade la actualización de datos a la aplicación y mejora en la medida de lo p
     
 
     //Me traigo mi db firestore
-    import { getTasks, insertTask, deleteTask } from "./utils.js";
+    import { getTasks, insertTask, deleteTask, updateTask } from "./utils.js";
     //console.log(db);
     //Extraigo todos los documentos de tasks y creo tarjetas con ellos
     getTasks();
@@ -33,17 +33,33 @@ Añade la actualización de datos a la aplicación y mejora en la medida de lo p
         })
     });
 
-/*     const buttonsCardDUpdate = document.getElementsByName("upload");
-    buttonsCardDUpdate.forEach(element => {
-        element.addEventListener("click",  () => {
+    const buttonsCardDUpload = document.getElementsByName("upload");
+
+    buttonsCardDUpload.forEach(element => {
+        element.addEventListener("click", e => {
             e.preventDefault();
-            const task = {
-                title: form["task-title"].value,
-                description: form["task-description"].value
+
+            var ocultar = document.getElementById("entrada")
+            ocultar.style.display = 'none'
+
+            var mostrar = document.getElementById("actualizar")
+            mostrar.style.display = 'inline'
+            document.getElementById('btnUpload').name = element.id
+        })
+        
+    });
+
+
+    const comprobar = document.getElementById('upload-form')
+
+    comprobar.addEventListener("submit", e => {
+        e.preventDefault();
+        //alert(document.getElementById('btn').name
+        const task = {
+            title: comprobar["update-title"].value,
+            description: comprobar["update-description"].value
             }
-    
-            updateTask(element.id);
-        });
-    }); 
- 
- */
+
+            
+            updateTask(document.getElementById('btnUpload').name,task)
+    })
